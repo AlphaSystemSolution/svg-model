@@ -1,0 +1,42 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.alphasystem.svg</groupId>
+	<artifactId>svg-model</artifactId>
+	<parent>
+		<groupId>com.alphasystem</groupId>
+		<artifactId>project</artifactId>
+		<version>3.0.0-SNAPSHOT</version>
+	</parent>
+	<build>
+        <plugins>
+			<plugin>
+				<groupId>org.apache.cxf</groupId>
+				<artifactId>cxf-xjc-plugin</artifactId>
+				<configuration>
+					<xsdOptions>
+						<xsdOption>
+							<xsd>${basedir}/src/main/resources/svg.xsd</xsd>
+							<bindingFile>${basedir}/src/main/resources/svg.xjb</bindingFile>
+							<extensionArgs>
+								<extensionArg>-Xfluent-api</extensionArg>
+								<extensionArg>-Xcollection-setter-injector</extensionArg>
+							</extensionArgs>
+						</xsdOption>
+					</xsdOptions>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
+			</plugin>
+            <plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+	<properties>
+		<genOutputDirectory>${project.build.directory}/generated/src/main/java</genOutputDirectory>
+	</properties>
+</project>

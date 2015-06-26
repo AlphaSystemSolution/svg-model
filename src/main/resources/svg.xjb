@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<jaxb:bindings version="2.0" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+               xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+               xmlns:inheritance="http://jaxb2-commons.dev.java.net/basic/inheritance">
+    <jaxb:bindings schemaLocation="svg.xsd">
+        <jaxb:schemaBindings>
+            <jaxb:package name="org.w3.svg"/>
+        </jaxb:schemaBindings>
+        <jaxb:bindings node="//xs:complexType[@name='svgType']">
+            <jaxb:bindings node=".//xs:choice">
+                <jaxb:property name="contents" />
+            </jaxb:bindings>
+        </jaxb:bindings>
+        <jaxb:bindings node="//xs:complexType[@name='gType']">
+            <jaxb:bindings node=".//xs:choice">
+                <jaxb:property name="contents" />
+            </jaxb:bindings>
+        </jaxb:bindings>
+        <jaxb:bindings node="//xs:complexType[@name='defsType']">
+            <jaxb:bindings node=".//xs:choice">
+                <jaxb:property name="contents" />
+            </jaxb:bindings>
+        </jaxb:bindings>
+        <jaxb:bindings node="//xs:complexType[@name='markerType']">
+            <jaxb:bindings node=".//xs:choice">
+                <jaxb:property name="contents" />
+            </jaxb:bindings>
+        </jaxb:bindings>
+        <jaxb:bindings node="//xs:complexType[@name='foreignObjectType']">
+            <jaxb:bindings node=".//xs:attribute[@name='content']">
+                <jaxb:property name="contentAttribute" />
+            </jaxb:bindings>
+        </jaxb:bindings>
+        <jaxb:bindings node="//xs:complexType[@name='descType']">
+            <jaxb:bindings node=".//xs:attribute[@name='content']">
+                <jaxb:property name="contentAttribute" />
+            </jaxb:bindings>
+        </jaxb:bindings>
+        <jaxb:bindings node="//xs:complexType[@name='titleType']">
+            <jaxb:bindings node=".//xs:attribute[@name='content']">
+                <jaxb:property name="contentAttribute" />
+            </jaxb:bindings>
+        </jaxb:bindings>
+    </jaxb:bindings>
+
+    <jaxb:bindings schemaLocation="xlink.xsd">
+        <jaxb:schemaBindings>
+            <jaxb:package name="org.w3.xlink"/>
+        </jaxb:schemaBindings>
+        <jaxb:bindings node="xs:element[@name='title']">
+            <jaxb:class name="XlinkTitle"/>
+        </jaxb:bindings>
+        <jaxb:bindings node="//xs:simpleType[@name='typeType']">
+            <jaxb:typesafeEnumClass name="XLinkType"/>
+    </jaxb:bindings>
+        <jaxb:bindings node="xs:attribute[@name='type']">
+            <jaxb:bindings node=".">
+                <jaxb:property name="xlinkType" />
+            </jaxb:bindings>
+        </jaxb:bindings>
+        <jaxb:bindings node="//xs:group[@name='locatorModel']">
+            <jaxb:bindings node="xs:sequence/xs:element[@ref='xlink:title']">
+                <jaxb:property name="locatorModelTitle" />
+            </jaxb:bindings>
+        </jaxb:bindings>
+        <jaxb:bindings node="//xs:group[@name='arcModel']">
+            <jaxb:bindings node="xs:sequence/xs:element[@ref='xlink:title']">
+                <jaxb:property name="arcModelTitle" />
+            </jaxb:bindings>
+        </jaxb:bindings>
+    </jaxb:bindings>
+
+ </jaxb:bindings>
